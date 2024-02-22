@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require("cors");
-
-mongoose.connect("mongodb+srv://nikhil:note5pro@nikhilcluster.i4hulcy.mongodb.net/?retryWrites=true&w=majority");
+const env = require("dotenv").config();
+mongoose.connect(process.env.MONGOURL);
 const database = mongoose.connection
 
 database.on('error', (error) => {
