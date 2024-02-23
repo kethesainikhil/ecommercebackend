@@ -74,38 +74,10 @@ router.get('/:productCategory/:ProductId', async (req, res) => {
     console.log(data)
     res.send(data)
 })
-router.post('/addtocart', async (req, res) => {
-    const user = await User.findOne({ _id: req.body.userId })
-    console.log(req.body.userId,"user idd")
-    const category = req.body.category
-    const model = mongoose.model("cartitem");
-    console.log(req.body)
-    console.log(model)
-   try{
-    if(user){
-        const data = new model({
-            userID: req.body.userId,
-            id: req.body.id,
-            title: req.body.title,
-            image_url: req.body.image_url,
-            price: req.body.price,
-            quantity: req.body.quantity,
-            category:req.body.category
-        })
 
-        try{
-            const dataToSave = await data.save();
-            res.status(200).json(dataToSave)
-        }
-        catch(error){
-            res.send(error)
-        }
-    }
-   }
-   catch(error){
-    res.send(error)
-   }
-})
+
+
+
 // router.get('/hello', async (req, res) => {
 //     const user = await cartItem.findOne({ id: 12 })
 //     if(user){

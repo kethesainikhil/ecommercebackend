@@ -21,9 +21,9 @@ app.use(cors(
 app.use(express.json());
 
 const routes = require("./routes/routes")
-
-
+const cartRoutes = require("./routes/cartRoutes")
 app.use("/",routes)
+app.use("/cart",cartRoutes)
 
 
 
